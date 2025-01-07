@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/subly/static/css/main.c66a8e10.css",
+    "main.js": "/subly/static/js/main.4f626079.js",
+    "index.html": "/subly/index.html",
+    "main.c66a8e10.css.map": "/subly/static/css/main.c66a8e10.css.map",
+    "main.4f626079.js.map": "/subly/static/js/main.4f626079.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c66a8e10.css",
+    "static/js/main.4f626079.js"
+  ]
+}

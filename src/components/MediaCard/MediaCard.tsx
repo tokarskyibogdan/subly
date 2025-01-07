@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Media, MediaStatus } from "src/models/media";
 import { getLastUpdatedAt } from "src/utils/date";
 
@@ -18,10 +17,6 @@ const MediaCard = (props: MediaCardProps) => {
   const { name, cover, languages, id, status, updatedAt } = media;
   const inlineStyles = status === MediaStatus.Error ? {} : { backgroundImage: `url("${cover}")` };
 
-  useEffect(() => {
-    console.log("MediaCard rendered");
-  }, []);
-
   const renderStatus = () => {
     switch (status) {
       case MediaStatus.Error:
@@ -40,7 +35,7 @@ const MediaCard = (props: MediaCardProps) => {
       case MediaStatus.Transcribing:
         return <TranscribingContent />
       default:
-        return <SuccessContent image={cover}/>
+        return <SuccessContent onDelete={onDelete} mediaId={id}/>
     }
   }
 

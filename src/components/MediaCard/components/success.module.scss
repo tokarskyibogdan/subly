@@ -1,3 +1,31 @@
 .successContent {
+  height: 100%;
 
+  &Extra {
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, .6);
+  }
+
+  &:hover {
+    .successContentExtra {
+      display: flex;
+    }
+  }
+
+  &Edit {
+    min-width: 120px;
+    background-color: transparent;
+    color: white;
+    border-color: white;
+  }
+
+  &Delete {
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }

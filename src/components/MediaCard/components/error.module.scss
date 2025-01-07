@@ -1,0 +1,22 @@
+.errorContent {
+  font-size: 14px;
+  background-color: #FBE6E5;
+  padding: 12px;
+  height: 176px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+
+  &Actions {
+    display: flex;
+    width: 100%;
+    gap: 4px;
+    justify-content: flex-end;
+  }
+
+  &Btn {
+    background-color: white;
+  }
+}

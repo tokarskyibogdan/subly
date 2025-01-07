@@ -4,15 +4,14 @@
   flex-wrap: wrap;
   gap: 12px;
 
-  &Image {
-
+  &Filters {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    flex-wrap: wrap;
   }
 
-  &Title {
-
-  }
-
-  &Subtitle {
-
+  &Filter {
+    width: 300px;
   }
 }

@@ -1,12 +1,16 @@
 import useMediaList from "src/hooks/useMediaList";
 import { useEffect } from "react";
 import MediaCard from "src/components/MediaCard";
-import { Media } from "src/models/media";
+import { Media, MediaLanguage, MediaStatus } from "src/models/media";
+import { Autocomplete, TextField } from "@mui/material";
 
 import styles from "./MediaList.module.scss";
 
 const MediaList = () => {
-  const { loading, fetchMedia, media } = useMediaList();
+  const {
+    loading, fetchMedia, media, status, setStatus,
+    filteredMedia, setTranslation, translation, deleteMedia
+  } = useMediaList();
 
   useEffect(() => {
     fetchMedia();
@@ -23,8 +27,40 @@ const MediaList = () => {
   }
 
   return (
-    <div className={styles.mediaList}>
-      {media.map((media: Media) => <MediaCard key={media.id} media={media}/>)}
+    <div>
+      <div className={styles.mediaListFilters}>
+        <Autocomplete
+          multiple
+          className={styles.mediaListFilter}
+          options={Object.values(MediaLanguage)}
+          onChange={(_event, value) => setTranslation(value)}
+          value={translation}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Translation"
+              placeholder="Translation"
+            />
+          )}
+        />
+        <Autocomplete
+          multiple
+          className={styles.mediaListFilter}
+          options={Object.values(MediaStatus)}
+          onChange={(_event, value) => setStatus(value)}
+          value={status}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Status"
+              placeholder="Status"
+            />
+          )}
+        />
+      </div>
+      <div className={styles.mediaList}>
+        {filteredMedia.map((media: Media) => <MediaCard onDelete={deleteMedia} key={media.id} media={media}/>)}
+      </div>
     </div>
   );
 }

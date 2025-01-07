@@ -5,13 +5,12 @@ const useMediaList = () => {
   const [loading, setLoading] = useState(false);
   const [media, setMedia] = useState<Media[]>([]);
   const [translation, setTranslation] = useState<MediaLanguage[]>([]);
-  const [search, setSearch] = useState<string>("");
   const [status, setStatus] = useState<MediaStatus[]>([]);
   const [filteredMedia, setFilteredMedia] = useState<Media[]>([]);
 
   useEffect(() => {
     handleFilterUpdate();
-  }, [search, status, translation]);
+  }, [status, translation, media.length]);
 
   const fetchMedia = async () => {
     if (loading || media.length) {
@@ -24,6 +23,7 @@ const useMediaList = () => {
       const fetchResponse = await fetch("https://raw.githubusercontent.com/getsubly/test-data/refs/heads/master/cards.json");
       const mediaResponse: Media[] = await fetchResponse.json();
       setMedia(mediaResponse);
+      setFilteredMedia(mediaResponse);
     } catch (error) {
       setMedia([]);
       console.error(error);
@@ -32,13 +32,7 @@ const useMediaList = () => {
   }
 
   const handleFilterUpdate = () => {
-    const loverCaseSearch = search.toLowerCase();
     const filteredMedia = media.filter((media) => {
-      const matchName = media.name.toLowerCase().includes(loverCaseSearch);
-      if (search && !matchName) {
-        return false;
-      }
-
       const matchStatus = status.includes(media.status);
       if (status.length && !matchStatus) {
         return false;
@@ -54,13 +48,16 @@ const useMediaList = () => {
     setFilteredMedia(filteredMedia);
   }
 
+  const deleteMedia = (mediaId: string) => {
+    setMedia((prevMedia) => prevMedia.filter((media) => media.id !== mediaId));
+  };
+
   return {
+    deleteMedia,
     fetchMedia,
     loading,
     media,
     translation,
-    search,
-    setSearch,
     status,
     setStatus,
     setTranslation,

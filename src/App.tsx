@@ -1,13 +1,15 @@
 import React from "react";
 import Header from "src/components/Header";
 import MediaList from "src/components/MediaList";
+import { ThemeProvider } from "@mui/system";
+import theme from "src/theme";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <MediaList />
-    </div>
+    <ThemeProvider theme={theme}>
+      <Header/>
+      <MediaList/>
+    </ThemeProvider>
   );
 }
 

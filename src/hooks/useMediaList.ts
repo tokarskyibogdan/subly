@@ -7,9 +7,11 @@ const useMediaList = () => {
   const [translation, setTranslation] = useState<MediaLanguage[]>([]);
   const [status, setStatus] = useState<MediaStatus[]>([]);
   const [filteredMedia, setFilteredMedia] = useState<Media[]>([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     handleFilterUpdate();
+    setPage(1);
   }, [status, translation, media.length]);
 
   const fetchMedia = async () => {
@@ -39,11 +41,7 @@ const useMediaList = () => {
       }
 
       const matchTranslation = translation.some((language) => media.languages.includes(language));
-      if (translation.length && !matchTranslation) {
-        return false;
-      }
-
-      return true;
+      return translation.length ? matchTranslation : true;
     });
     setFilteredMedia(filteredMedia);
   }
@@ -62,6 +60,8 @@ const useMediaList = () => {
     setStatus,
     setTranslation,
     filteredMedia,
+    page,
+    setPage,
   }
 }
 

@@ -2,15 +2,19 @@ import useMediaList from "src/hooks/useMediaList";
 import { useEffect } from "react";
 import MediaCard from "src/components/MediaCard";
 import { Media, MediaLanguage, MediaStatus } from "src/models/media";
-import { Autocomplete, TextField } from "@mui/material";
+import { Autocomplete, Box, Pagination, TextField } from "@mui/material";
 
 import styles from "./MediaList.module.scss";
+import usePaginated from "src/hooks/usePaginated";
+
+const pageSize = 10;
 
 const MediaList = () => {
   const {
-    loading, fetchMedia, media, status, setStatus,
+    loading, fetchMedia, media, status, setStatus, page, setPage,
     filteredMedia, setTranslation, translation, deleteMedia
   } = useMediaList();
+  const { pageNumbers, itemsToDisplay } = usePaginated(filteredMedia, pageSize, page);
 
   useEffect(() => {
     fetchMedia();
@@ -59,8 +63,13 @@ const MediaList = () => {
         />
       </div>
       <div className={styles.mediaList}>
-        {filteredMedia.map((media: Media) => <MediaCard onDelete={deleteMedia} key={media.id} media={media}/>)}
+        {itemsToDisplay.map((media: Media) => <MediaCard onDelete={deleteMedia} key={media.id} media={media}/>)}
       </div>
+      {!!filteredMedia.length && pageNumbers > 1 && (
+        <Box py={2}>
+          <Pagination onChange={(_e, page) => setPage(page)} page={page} count={pageNumbers} color="primary"/>
+        </Box>
+      )}
     </div>
   );
 }

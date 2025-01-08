@@ -1,0 +1,31 @@
+.flags {
+  display: flex;
+
+  &Flag {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background: center no-repeat;
+    background-size: cover;
+
+    &:not(:first-child) {
+      margin-left: -10px;
+    }
+
+    &Fr {
+      background-image: url("./img/fr.svg");
+    }
+
+    &En {
+      background-image: url("./img/en.svg");
+    }
+
+    &Es {
+      background-image: url("./img/es.svg");
+    }
+
+    &De {
+      background-image: url("./img/de.svg");
+    }
+  }
+}

@@ -35,7 +35,7 @@ const MediaCard = (props: MediaCardProps) => {
       case MediaStatus.Transcribing:
         return <TranscribingContent />
       default:
-        return <SuccessContent onDelete={onDelete} mediaId={id}/>
+        return <SuccessContent languages={languages} onDelete={onDelete} mediaId={id}/>
     }
   }
 

@@ -12,6 +12,8 @@ const useMediaList = () => {
   useEffect(() => {
     handleFilterUpdate();
     setPage(1);
+    // we want to rely on the filters change to update the list
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status, translation, media.length]);
 
   const fetchMedia = async () => {
@@ -22,6 +24,8 @@ const useMediaList = () => {
 
     setLoading(true);
     try {
+      // used simple fetch, in larger projects consider using axios or similar
+      // and create an expandable service for the API calls
       const fetchResponse = await fetch("https://raw.githubusercontent.com/getsubly/test-data/refs/heads/master/cards.json");
       const mediaResponse: Media[] = await fetchResponse.json();
       setMedia(mediaResponse);
@@ -40,7 +44,8 @@ const useMediaList = () => {
         return false;
       }
 
-      const matchTranslation = translation.some((language) => media.languages.includes(language));
+      // we also expect the media to be ready to be displayed if a translation is selected
+      const matchTranslation = translation.some((language) => media.languages.includes(language)) && media.status === MediaStatus.Ready;
       return translation.length ? matchTranslation : true;
     });
     setFilteredMedia(filteredMedia);

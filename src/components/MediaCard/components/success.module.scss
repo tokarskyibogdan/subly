@@ -6,6 +6,8 @@
     justify-content: center;
     height: 100%;
     display: none;
+    z-index: 2;
+    position: relative;
     background-color: rgba(0, 0, 0, .6);
   }
 
@@ -15,7 +17,7 @@
     }
   }
 
-  &Edit {
+  &Edit:global(.MuiButton-outlined) {
     min-width: 120px;
     background-color: transparent;
     color: white;
@@ -27,5 +29,12 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+
+  &Translations {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
   }
 }

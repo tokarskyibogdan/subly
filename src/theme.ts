@@ -23,7 +23,7 @@ const theme = createTheme({
           backgroundColor: "white",
         },
       },
-    }
+    },
   },
 });
 

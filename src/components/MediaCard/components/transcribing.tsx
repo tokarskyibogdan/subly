@@ -12,9 +12,11 @@ const TranscribingContent = () => (
     flexDirection="column"
     gap={3}
   >
-    <Typography variant="caption" fontSize={16}>Transcribing subtitles</Typography>
-    <Box sx={{ width: '100%' }}>
-      <LinearProgress/>
+    <Typography variant="caption" fontSize={16}>
+      Transcribing subtitles
+    </Typography>
+    <Box sx={{ width: "100%" }}>
+      <LinearProgress />
     </Box>
   </Box>
 );

@@ -1,4 +1,4 @@
-import styles from "./Header.module.scss"
+import styles from "./Header.module.scss";
 import { ReactComponent as Logo } from "./logo.svg";
 
 const Header = () => {
@@ -7,6 +7,6 @@ const Header = () => {
       <Logo />
     </header>
   );
-}
+};
 
 export default Header;

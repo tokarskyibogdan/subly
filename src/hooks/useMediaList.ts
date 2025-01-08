@@ -35,24 +35,24 @@ const useMediaList = () => {
       console.error(error);
     }
     setLoading(false);
-  }
+  };
 
   const handleFilterUpdate = () => {
-    const filteredMedia = media.filter((media) => {
+    const filteredMedia = media.filter(media => {
       const matchStatus = status.includes(media.status);
       if (status.length && !matchStatus) {
         return false;
       }
 
       // we also expect the media to be ready to be displayed if a translation is selected
-      const matchTranslation = translation.some((language) => media.languages.includes(language)) && media.status === MediaStatus.Ready;
+      const matchTranslation = translation.some(language => media.languages.includes(language)) && media.status === MediaStatus.Ready;
       return translation.length ? matchTranslation : true;
     });
     setFilteredMedia(filteredMedia);
-  }
+  };
 
   const deleteMedia = (mediaId: string) => {
-    setMedia((prevMedia) => prevMedia.filter((media) => media.id !== mediaId));
+    setMedia(prevMedia => prevMedia.filter(media => media.id !== mediaId));
   };
 
   return {
@@ -67,7 +67,7 @@ const useMediaList = () => {
     filteredMedia,
     page,
     setPage,
-  }
-}
+  };
+};
 
 export default useMediaList;

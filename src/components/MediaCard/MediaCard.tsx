@@ -10,7 +10,7 @@ import styles from "./MediaCard.module.scss";
 type MediaCardProps = {
   media: Media;
   onDelete: (mediaId: string) => void;
-}
+};
 
 const MediaCard = (props: MediaCardProps) => {
   const { media, onDelete } = props;
@@ -20,24 +20,24 @@ const MediaCard = (props: MediaCardProps) => {
   const renderStatus = () => {
     switch (status) {
       case MediaStatus.Error:
-        return "Error in processing"
+        return "Error in processing";
       case MediaStatus.Transcribing:
-        return "Transcribing"
+        return "Transcribing";
       default:
-        return `Edited ${getLastUpdatedAt(updatedAt)}`
+        return `Edited ${getLastUpdatedAt(updatedAt)}`;
     }
-  }
+  };
 
   const renderContent = () => {
     switch (status) {
       case MediaStatus.Error:
-        return <ErrorContent onDelete={onDelete} mediaId={id}/>
+        return <ErrorContent onDelete={onDelete} mediaId={id} />;
       case MediaStatus.Transcribing:
-        return <TranscribingContent />
+        return <TranscribingContent />;
       default:
-        return <SuccessContent languages={languages} onDelete={onDelete} mediaId={id}/>
+        return <SuccessContent languages={languages} onDelete={onDelete} mediaId={id} />;
     }
-  }
+  };
 
   return (
     <div className={styles.mediaCard} key={id}>
@@ -46,12 +46,10 @@ const MediaCard = (props: MediaCardProps) => {
       </div>
       <div className={styles.mediaCardMeta}>
         <div className={styles.mediaCardName}>{name}</div>
-        <div className={styles.mediaCardStatus}>
-          {renderStatus()}
-        </div>
+        <div className={styles.mediaCardStatus}>{renderStatus()}</div>
       </div>
     </div>
   );
-}
+};
 
 export default MediaCard;

@@ -7,7 +7,7 @@ export const usePaginated = <T extends unknown>(items: T[], itemsPerPage: number
   return {
     pageNumbers,
     itemsToDisplay,
-  }
+  };
 };
 
 export default usePaginated;

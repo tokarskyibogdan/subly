@@ -7,8 +7,8 @@ import theme from "src/theme";
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Header/>
-      <MediaList/>
+      <Header />
+      <MediaList />
     </ThemeProvider>
   );
 }

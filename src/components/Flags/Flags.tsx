@@ -5,7 +5,7 @@ import styles from "./Flags.module.scss";
 
 type Props = {
   languages: MediaLanguage[];
-}
+};
 
 const Flags = (props: Props) => {
   const { languages } = props;
@@ -25,6 +25,6 @@ const Flags = (props: Props) => {
       ))}
     </div>
   );
-}
+};
 
 export default Flags;

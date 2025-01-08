@@ -15,6 +15,7 @@ const Flags = (props: Props) => {
       {languages.map(language => (
         <div
           key={language}
+          data-testid={language}
           className={classNames(styles.flagsFlag, {
             [styles.flagsFlagEn]: language === MediaLanguage.EN,
             [styles.flagsFlagFr]: language === MediaLanguage.FR,

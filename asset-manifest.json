@@ -1,14 +1,18 @@
 {
   "files": {
-    "main.css": "/subly/static/css/main.c66a8e10.css",
-    "main.js": "/subly/static/js/main.2c519912.js",
+    "main.css": "/subly/static/css/main.4f1db432.css",
+    "main.js": "/subly/static/js/main.a58f01e6.js",
+    "static/media/es.svg": "/subly/static/media/es.8b570f6c87b7f98b4c19.svg",
     "static/media/logo.svg": "/subly/static/media/logo.aaaac9dcec164dd5adf69badf9344380.svg",
+    "static/media/en.svg": "/subly/static/media/en.c663895a53608a3db1be.svg",
     "index.html": "/subly/index.html",
-    "main.c66a8e10.css.map": "/subly/static/css/main.c66a8e10.css.map",
-    "main.2c519912.js.map": "/subly/static/js/main.2c519912.js.map"
+    "static/media/fr.svg": "/subly/static/media/fr.239c5560b3caae575080.svg",
+    "static/media/de.svg": "/subly/static/media/de.724ac482cdf5d4870a1b.svg",
+    "main.4f1db432.css.map": "/subly/static/css/main.4f1db432.css.map",
+    "main.a58f01e6.js.map": "/subly/static/js/main.a58f01e6.js.map"
   },
   "entrypoints": [
-    "static/css/main.c66a8e10.css",
-    "static/js/main.2c519912.js"
+    "static/css/main.4f1db432.css",
+    "static/js/main.a58f01e6.js"
   ]
 }

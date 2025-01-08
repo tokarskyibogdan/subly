@@ -24,6 +24,7 @@
 13. Added filters to the list of media to make it more user-friendly and to make it easier to find the desired media.
 14. In terms of Languages amount on cards I went a bit beyond the requirements and added flags as indication of existing
     languages as implemented on current Subly application.
+15. To handle query errors I added a simple error handling with a debug message to the console but also can be done for users.
 
 ### Tests
 

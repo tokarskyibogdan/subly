@@ -25,6 +25,8 @@
 14. In terms of Languages amount on cards I went a bit beyond the requirements and added flags as indication of existing
     languages as implemented on current Subly application.
 15. To handle query errors I added a simple error handling with a debug message to the console but also can be done for users.
+16. During the development I used Chrome, Safari & Firefox to check the compatibility and make sure the application works
+    fine on all of them.
 
 ### Tests
 

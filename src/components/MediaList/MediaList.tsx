@@ -49,6 +49,7 @@ const MediaList = () => {
         />
       </div>
       <div className={styles.mediaList}>
+        {filteredMedia.length === 0 && <div>No items matching search criteria</div>}
         {itemsToDisplay.map((media: Media) => (
           <MediaCard onDelete={deleteMedia} key={media.id} media={media} />
         ))}

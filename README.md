@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Subly Frontend Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Some code/architecture decisions
 
-## Available Scripts
+1. I split up the components into smaller components to make them more reusable and easier to maintain.
+2. I used a combination of MUI components and custom components to build the UI demonstrating the ability to use both
+    3. MUI for primitives like: Buttons, Multiselect & Icons, etc
+    4. Custom SASS modules for complex css logic
+5. The Deployment is done using GitHub pages with command `npm run deploy` and can be eventually automated via CI/CD
+   pipeline
+6. To demonstrate code quality understanding, I added ESLint and Prettier to the project this also can be added to the
+   CI/CD pipeline
+7. I used React hooks to manage the state and side effects instead of global storage like Redux or MobX for simplicity
+   in that specific case
+8. While thinking of the requirements, I decided to use pagination for the list of items, to make it more user-friendly
+   and to avoid loading all the items at once, I personally prefer in such cases server side pagination to avoid loading
+   all the data at once. We can also use virtualized lists to make it more performant to render large lists.
+9. To prevent UI breaks I predicted long titles in the Media names and used ellipsis for that case.
+10. I checked the existing Subly application and noticed that it doesn't have a responsive design, I didn't focus on it
+    too much but added some initial responsiveness for UI, so it looks fine on mobile devices.
+11. The media Images I used as a background image, to prevent the image from blocking page rendering and to make it more
+    performant.
+12. I added some placeholders to various scenarios like "loading", "empty list" & "no matching results" to make the user
+    experience better.
+13. Added filters to the list of media to make it more user-friendly and to make it easier to find the desired media.
+14. In terms of Languages amount on cards I went a bit beyond the requirements and added flags as indication of existing
+    languages as it implement on current Subly application.
 
-In the project directory, you can run:
+### Tests
 
-### `npm start`
+I added initial tests to demonstrate unit testing with Jest.
+Testing the small component & util functions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run the tests use command: `npm run test`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+In addition and fore complex components, I would add e2e tests with Cypress or Playwright.
 
-### `npm test`
+### How to run the project
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository
+2. Run `npm install`
+3. Run `npm start`
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run build`
+### How to deploy the project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Checkout to the main branch (or any other branch you want to deploy)
+2. Run `npm run deploy`
+2. Open [https://tokarskyibogdan.github.io/subly/](https://tokarskyibogdan.github.io/subly/) to view it in the browser.
+3. The deployment action can be found on the repo details [page](https://github.com/tokarskyibogdan/subly/deployments)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### How to run quality checks
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Run `npm run check:lint` to check the code style
+2. Run `npm run lint-fix` to fix the code style issues
+3. Run `npm run check:format` to check the code formatting
+4. Run `npm run reformat` to format the code
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+PS: The project was created using Create React App and TypeScript per the requirements. To eject the project and have
+more control over the configuration, you can run `npm run eject`. Despite that I'm quite familiar with Vite and Next.js,
+as well as configuring Webpack from scratch.
